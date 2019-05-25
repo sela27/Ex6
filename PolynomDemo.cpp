@@ -23,18 +23,27 @@ int main() {
     */
 
 
-    istringstream input("700[kg]"); //init polynom
-    input >> a;
-    cout << a << endl;   // Prints "700[kg]"
-    cout << (a += PhysicalNumber(1, Unit::TON)) << endl;  // prints "1700[kg]"
-    cout << a << endl;   // Prints "1700[kg]" since a has changed.
+    istringstream input("1x^2+5x"); //init polynom
+    input >> p0;
+    cout << p0 << endl;   // Prints "700[kg]"
+    cout << p0.derivative() << endl;
+    cout << (p0 += Polynom(p0)) << endl;  // prints "1700[kg]"
+    cout << p0 << endl;   // Prints "1700[kg]" since a has changed.
 
+    p0.sort();
+    std::cout << "sort :"  << p0 << '\n';
+
+    Monom m0(1.0 , 2) ;
+    bool b = p0.contains(m0);
+/*
     try {
       cout << (a+b) << endl;
     } catch (const std::exception& ex) {
       cout << ex.what() << endl; // Prints "Units do not match - [m] cannot be converted to [kg]"
     }
-  } catch (...) {
+    */
+  }
+   catch (...) {
     cout << "Unexpected exception!" << endl;
   }
   return 0;
