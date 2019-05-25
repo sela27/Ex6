@@ -10,6 +10,7 @@
 #include <deque>
 #include <map>
 
+
 using namespace std;
 
 namespace ariel{
@@ -46,25 +47,28 @@ namespace ariel{
 
 class Polynom {
 
-Polynom();
-Polynom(const Polynom&);
-Polynom& sort();
-const Polynom operator + (const Polynom&) const;
-Polynom& operator += (const Polynom&);
-Polynom& operator -(const Polynom&);
-Monom& remove(int);
-bool contains(const Monom&);
-const Polynom intersection(const Polynom&);
-Monom& maxOfMonoms(const Polynom&);
+public:
+Polynom(){}
+Polynom(const Polynom&){}
+Polynom& sort(){return *this;}
+const Polynom operator+(const Polynom& p1) const
+{return *this;}
+const Polynom& operator += (const Polynom& p){return p;}
+Polynom& operator -(const Polynom& p){ return *this;}
+Monom& remove(int) {Monom m(0.0,0);
+  return m;}
+bool contains(const Monom&) {return false;}
+const Polynom intersection(const Polynom& p) {return p;}
+Monom& maxOfMonoms(const Polynom&) {Monom m(0.0,0);
+  return m;}
 
-friend ostream& operator<<(ostream& os, const Polynom& p);
-friend istream& operator>> (istream& is, Polynom& p);
+friend ostream& operator<<(ostream& os, const Polynom& p){return os;}
+friend istream& operator>> (istream& is, Polynom& p) {return is;}
 
-Polynom derivative();
+Polynom derivative() {return *this;}
 
 };
 
 
 
 }
-

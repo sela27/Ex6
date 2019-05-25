@@ -3,18 +3,22 @@
 #include <stdexcept>
 using std::cout, std::endl, std::boolalpha, std::istringstream;
 #include "Polynom.h"
-//#include "Monom.h"
+#include "Monom.h"
 using ariel::Polynom, ariel::Monom;
+//using namespace ariel;
 
 int main() {
   try {
-    Polynom p0();   // 2 kilometers
-    Polynom p1();  // 300 meters
+    Polynom p0;   // 2 kilometers
+    Polynom p1;  // 300 meters
+
     cout << p0 << endl;   // Prints "2[km]"
     cout << p1 << endl;
+
     cout << (p0 + p1) << endl;   // Prints "2.3[km]"
+
     cout << (p1 - p0) << endl;   // Prints "-1700[m]"
-    //cout << (-a) << endl;   // Prints "-2[km]"
+
     /*
     cout << boolalpha; // print booleans as strings from now on:
     cout << (a>b) << endl;  // Prints "true"
@@ -25,8 +29,11 @@ int main() {
 
     istringstream input("1x^2+5x"); //init polynom
     input >> p0;
+
     cout << p0 << endl;   // Prints "700[kg]"
+
     cout << p0.derivative() << endl;
+
     cout << (p0 += Polynom(p0)) << endl;  // prints "1700[kg]"
     cout << p0 << endl;   // Prints "1700[kg]" since a has changed.
 
@@ -35,7 +42,7 @@ int main() {
 
     Monom m0(1.0 , 2) ;
     bool b = p0.contains(m0);
-/*
+    /*
     try {
       cout << (a+b) << endl;
     } catch (const std::exception& ex) {
@@ -46,5 +53,7 @@ int main() {
    catch (...) {
     cout << "Unexpected exception!" << endl;
   }
+
+
   return 0;
 }
